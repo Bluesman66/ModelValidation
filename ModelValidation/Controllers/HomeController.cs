@@ -20,11 +20,19 @@ namespace ModelValidation.Controllers
 			if (String.IsNullOrEmpty(appt.ClientName))
 				ModelState.AddModelError("ClientName", "Введите свое имя");
 
-			if (ModelState.IsValidField("Date") && DateTime.Now > appt.Date)
+			if (!ModelState.IsValidField("Date"))
+				ModelState.AddModelError("Date", "Введите дату");
+			else if (DateTime.Now > appt.Date)
 				ModelState.AddModelError("Date", "Введите дату относящуюся к будущему");
 
 			if (!appt.TermsAccepted)
 				ModelState.AddModelError("TermsAccepted", "Вы должны принять условия");
+
+			if (ModelState.IsValidField("ClientName") && ModelState.IsValidField("Date")
+				&& appt.ClientName == "Вася" && appt.Date.DayOfWeek == DayOfWeek.Monday)
+			{
+				ModelState.AddModelError("", "Васи в понедельник отдыхают!");
+			}
 
 			if (ModelState.IsValid)
 			{
