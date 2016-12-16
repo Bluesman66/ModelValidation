@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ModelValidation.Models
 {
+	[NoVasyaOnMonday]
 	public class Appointment
 	{
 		[Required(ErrorMessage = "Введите свое имя")]

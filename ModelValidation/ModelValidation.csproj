@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Infrastructure\FutureDateAttribute.cs" />
     <Compile Include="Infrastructure\MustBeTrueAttribute.cs" />
+    <Compile Include="Infrastructure\NoVasyaOnMondayAttribute.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
