@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelValidation.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
@@ -13,8 +14,8 @@ namespace ModelValidation.Models
 		[DataType(DataType.Date)]
 		[Required(ErrorMessage = "Введите дату")]
 		public DateTime Date { get; set; }
-
-		[Range(typeof(bool), "true", "true", ErrorMessage = "Вы должны принять условия")]
+				
+		[MustBeTrue(ErrorMessage = "Вы должны принять условия")]
 		public bool TermsAccepted { get; set; }
 	}
 }
