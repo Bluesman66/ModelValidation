@@ -12,7 +12,7 @@ namespace ModelValidation.Models
 		public string ClientName { get; set; }
 
 		[DataType(DataType.Date)]
-		[Required(ErrorMessage = "Введите дату")]
+		[FutureDate(ErrorMessage = "Введите дату относящуюся к будущему")]
 		public DateTime Date { get; set; }
 				
 		[MustBeTrue(ErrorMessage = "Вы должны принять условия")]
